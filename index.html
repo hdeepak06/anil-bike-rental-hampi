@@ -1,889 +1,923 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anil Bike Rental Hampi — Rent a bike and explore historic temples, ruins, rocky hills and hidden spots in Hampi, Karnataka. Call or WhatsApp +91 9353008180.">
+    <title>Anil Bike Rental Hampi — Rent a Bike & Explore Hampi on Two Wheels</title>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <meta name="description"
-          content="Anil Bike Rental Hampi - Explore Hampi on two wheels.">
+    <!-- Leaflet CSS for Interactive Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
-    <title>Anil Bike Rental Hampi</title>
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="style.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-
-<!-- TOP BAR -->
-
-<div class="topbar">
-
-    <span>📍 HAMPI • SANAPUR</span>
-
-    <span>RIDE • EXPLORE • DISCOVER</span>
-
-</div>
-
-
-
-<!-- NAVBAR -->
-
-<header class="navbar">
-
-    <a href="#home"
-       class="brand">
-
-        <span class="brand-logo">
-            AR
-        </span>
-
-        <span class="brand-text">
-
-            <strong>Anil</strong> Bike Rental
-
-            <small>
-                HAMPI
-            </small>
-
-        </span>
-
-    </a>
-
-
-    <button class="menu-toggle"
-            aria-label="Menu">
-
-        ☰
-
-    </button>
-
-
-    <nav class="nav-links">
-
-        <a href="#home">
-            Home
-        </a>
-
-        <a href="#rides">
-            Rides
-        </a>
-
-        <a href="#why">
-            Why Us
-        </a>
-
-        <a href="#explore">
-            Explore Hampi
-        </a>
-
-        <a href="#gallery">
-            Gallery
-        </a>
-
-        <a href="#location">
-            Location
-        </a>
-
-        <a href="#booking"
-           class="nav-button">
-
-            Book Now
-
-        </a>
-
-    </nav>
-
-</header>
-
-
-
-<!-- HERO -->
-
-<section id="home"
-         class="hero">
-
-    <div class="hero-overlay"></div>
-
-
-    <div class="hero-content">
-
-        <div class="eyebrow">
-
-            <span></span>
-
-            DISCOVER HAMPI ON TWO WHEELS
-
+    <!-- TOP ANNOUNCEMENT & CONTACT BAR -->
+    <div class="topbar">
+        <div class="topbar-container">
+            <div class="topbar-item">
+                <span class="topbar-icon">📍</span>
+                <span>Anil Bike Rental • Hampi, Karnataka</span>
+            </div>
+            <div class="topbar-contact">
+                <a href="tel:+919353008180" class="topbar-phone">
+                    <span>📞 +91 9353008180</span>
+                </a>
+                <span class="topbar-sep">|</span>
+                <a href="tel:+919449533526" class="topbar-phone">
+                    <span>Alt: +91 9449533526</span>
+                </a>
+                <span class="topbar-sep">|</span>
+                <a href="https://wa.me/919353008180?text=Hi%20Anil%20Bike%20Rental%20Hampi%2C%20I%20would%20like%20to%20rent%20a%20bike.%20Please%20share%20the%20available%20bikes%2C%20prices%20and%20booking%20details." target="_blank" rel="noopener noreferrer" class="topbar-wa-link">
+                    <span>WhatsApp Chat ↗</span>
+                </a>
+            </div>
         </div>
+    </div>
 
-
-        <h1>
-
-            Hampi looks
-            <br>
-
-            <em>better</em>
-            on two wheels.
-
-        </h1>
-
-
-        <p>
-
-            Rent your ride and explore ancient temples,
-            beautiful landscapes, riverside roads and
-            hidden corners of Hampi.
-
-        </p>
-
-
-        <div class="hero-buttons">
-
-            <a href="#booking"
-               class="btn primary">
-
-                Book a Ride →
-
+    <!-- STICKY NAVBAR -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="brand" aria-label="Anil Bike Rental Hampi Homepage">
+                <span class="brand-symbol">AR</span>
+                <span class="brand-info">
+                    <span class="brand-name">ANIL <strong>BIKE RENTAL</strong></span>
+                    <span class="brand-loc">HAMPI • KARNATAKA</span>
+                </span>
             </a>
 
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#benefits" class="nav-link">Why Us</a>
+                <a href="#places" class="nav-link">Nearby Places</a>
+                <a href="#booking" class="nav-link">Book Bike</a>
+                <a href="#rentals" class="nav-link">Rentals</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                
+                <div class="nav-mobile-contacts">
+                    <a href="tel:+919353008180" class="nav-mobile-call">
+                        <span>📞 Call: +91 9353008180</span>
+                    </a>
+                    <a href="https://wa.me/919353008180?text=Hi%20Anil%20Bike%20Rental%20Hampi%2C%20I%20would%20like%20to%20rent%20a%20bike.%20Please%20share%20the%20available%20bikes%2C%20prices%20and%20booking%20details." target="_blank" rel="noopener noreferrer" class="nav-cta-btn mobile-only-cta">
+                        <svg class="wa-svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 18.15c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.15.83.84-3.07-.2-.31a8.19 8.19 0 01-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.83c.01 4.54-3.69 8.23-8.15 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.07-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.88.86-.88 2.1s.9 2.43 1.02 2.6c.12.17 1.77 2.7 4.28 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+                        </svg>
+                        <span>WhatsApp Now</span>
+                    </a>
+                </div>
+            </nav>
 
-            <a href="#rides"
-               class="btn secondary">
+            <div class="nav-actions">
+                <a href="tel:+919353008180" class="nav-call-link">
+                    <span>📞 +91 9353008180</span>
+                </a>
+                <a href="#booking" class="nav-book-btn">
+                    <span>Book Your Bike</span>
+                    <span class="btn-arrow">→</span>
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
 
-                View Rides ↓
-
-            </a>
-
+    <!-- 1. HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-bg-container">
+            <img src="hampi-view.jpg" alt="Panoramic Hampi Landscape" class="hero-bg-image">
+            <div class="hero-overlay"></div>
+            <div class="hero-glow"></div>
         </div>
 
+        <div class="hero-content">
+            <div class="hero-eyebrow">
+                <span class="eyebrow-dot"></span>
+                <span>ANIL BIKE RENTAL • HAMPI</span>
+            </div>
 
-        <div class="hero-info">
+            <h1 class="hero-title">
+                <span class="title-dark">Your Ride.</span>
+                <span class="title-orange">Your Hampi.</span>
+            </h1>
 
-            <span>
-                🛵 Easy Riding
-            </span>
-
-            <span>
-                📍 Hampi
-            </span>
-
-            <span>
-                ☀ Explore Freely
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- INTRO -->
-
-<section class="intro section">
-
-    <div class="section-label">
-        01 · THE RIDE
-    </div>
-
-
-    <div class="intro-grid">
-
-        <h2>
-
-            Start your Hampi
-            <br>
-
-            <span>
-                adventure here.
-            </span>
-
-        </h2>
-
-
-        <div>
-
-            <p>
-
-                Pick a ride, get on the road and
-                discover Hampi at your own pace.
-                Visit temples, viewpoints, villages,
-                rivers and beautiful countryside.
-
+            <p class="hero-description">
+                Explore Hampi beyond the usual route. Rent a reliable bike and discover ancient ruins, rocky landscapes, rivers and hidden places at your own pace.
             </p>
 
+            <div class="hero-cta-group">
+                <!-- PRIMARY BUTTON: BOOK YOUR BIKE -->
+                <a href="#booking" class="btn-primary-wa">
+                    <span class="btn-wa-icon-wrap">
+                        <svg class="wa-svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 18.15c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.15.83.84-3.07-.2-.31a8.19 8.19 0 01-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.83c.01 4.54-3.69 8.23-8.15 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.07-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.88.86-.88 2.1s.9 2.43 1.02 2.6c.12.17 1.77 2.7 4.28 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+                        </svg>
+                    </span>
+                    <span class="btn-text">Book Your Bike</span>
+                    <span class="btn-arrow">→</span>
+                </a>
 
-            <a href="#booking"
-               class="text-link">
+                <!-- CALL NOW BUTTON -->
+                <a href="tel:+919353008180" class="btn-secondary-pill hero-call-pill">
+                    <span class="pill-icon">📞</span>
+                    <span>Call Now</span>
+                </a>
 
-                Get on the road ↗
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- RIDES -->
-
-<section id="rides"
-         class="rides section">
-
-
-    <div class="section-header">
-
-        <div>
-
-            <div class="section-label orange">
-                02 · OUR RIDES
+                <!-- EXPLORE MAP BUTTON -->
+                <a href="#places" class="btn-secondary-pill">
+                    <span>Nearby Places on Map</span>
+                    <span class="btn-arrow-down">↓</span>
+                </a>
             </div>
 
-
-            <h2>
-
-                Pick your
-                <em>ride.</em>
-
-            </h2>
-
-        </div>
-
-
-        <p>
-
-            Contact Anil Bike Rental for current
-            vehicle availability and rental details.
-
-        </p>
-
-    </div>
-
-
-
-    <div class="ride-card">
-
-
-        <div class="ride-photo">
-
-            <img src="anil-bike-rental.png"
-                 alt="Anil Bike Rental Hampi shop">
-
-            <span class="photo-tag">
-
-                ANIL BIKE RENTAL
-
-            </span>
-
-        </div>
-
-
-        <div class="ride-content">
-
-            <small>
-                BIKES & SCOOTERS
-            </small>
-
-
-            <h3>
-                Ready to ride.
-            </h3>
-
-
-            <p>
-
-                Choose an available bike or scooter
-                and start exploring Hampi your way.
-
-            </p>
-
-
-            <div class="ride-features">
-
-                <span>
-                    ✓ Local Rental
-                </span>
-
-                <span>
-                    ✓ Easy Booking
-                </span>
-
-                <span>
-                    ✓ Explore Freely
-                </span>
-
+            <!-- TRUST REASSURANCE PILLS -->
+            <div class="hero-trust-bar">
+                <div class="trust-item">
+                    <span class="trust-icon">🛵</span>
+                    <span>Well-Maintained Bikes</span>
+                </div>
+                <div class="trust-sep">•</div>
+                <div class="trust-item">
+                    <span class="trust-icon">📞</span>
+                    <span>+91 9353008180</span>
+                </div>
+                <div class="trust-sep">•</div>
+                <div class="trust-item">
+                    <span class="trust-icon">⚡</span>
+                    <span>Instant WhatsApp Booking</span>
+                </div>
             </div>
-
-
-            <a href="#booking"
-               class="outline-button">
-
-                Check Availability →
-
-            </a>
-
         </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- WHY US -->
-
-<section id="why"
-         class="why section">
-
-    <div class="section-label">
-        03 · WHY ANIL
-    </div>
-
-
-    <h2>
-
-        Start simple.
-        <br>
-
-        <span>
-            Explore more.
-        </span>
-
-    </h2>
-
-
-    <div class="features">
-
-
-        <div class="feature">
-
-            <span>
-                01
-            </span>
-
-            <h3>
-                Local Rental
-            </h3>
-
-            <p>
-
-                Convenient bike rental for
-                your Hampi adventure.
-
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <span>
-                02
-            </span>
-
-            <h3>
-                Easy Booking
-            </h3>
-
-            <p>
-
-                Contact the rental directly
-                to check availability.
-
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <span>
-                03
-            </span>
-
-            <h3>
-                Explore Freely
-            </h3>
-
-            <p>
-
-                Create your own route and
-                discover Hampi at your pace.
-
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <span>
-                04
-            </span>
-
-            <h3>
-                Perfect for Hampi
-            </h3>
-
-            <p>
-
-                Two wheels make exploring
-                Hampi easy and enjoyable.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- EXPLORE -->
-
-<section id="explore"
-         class="explore">
-
-
-    <div class="explore-image">
-
-        <img src="hampi-temple-road.jpg"
-             alt="Hampi temple road">
-
-    </div>
-
-
-    <div class="explore-content">
-
-        <div class="section-label">
-            04 · EXPLORE HAMPI
-        </div>
-
-
-        <h2>
-
-            Your route.
-            <br>
-
-            <em>Your Hampi.</em>
-
-        </h2>
-
-
-        <p>
-
-            Ride beyond the main sights and discover
-            the temples, rocky landscapes, green fields,
-            rivers and peaceful roads around Hampi.
-
-        </p>
-
-
-        <div class="routes">
-
-            <div>
-
-                <b>01</b>
-
-                Heritage temples & monuments
-
-            </div>
-
-
-            <div>
-
-                <b>02</b>
-
-                Sanapur & reservoir roads
-
-            </div>
-
-
-            <div>
-
-                <b>03</b>
-
-                Scenic countryside
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- GALLERY -->
-
-<section id="gallery"
-         class="gallery section">
-
-
-    <div class="gallery-header">
-
-        <div>
-
-            <div class="section-label">
-                05 · GALLERY
-            </div>
-
-
-            <h2>
-
-                See the place.
-                <br>
-
-                <span>
-                    Feel the ride.
-                </span>
-
-            </h2>
-
-        </div>
-
-
-        <p>
-
-            Beautiful Hampi landscapes
-            waiting to be explored.
-
-        </p>
-
-    </div>
-
-
-
-    <div class="gallery-grid">
-
-
-        <div class="gallery-image big">
-
-            <img src="hampi-view.jpg"
-                 alt="Hampi hill and river">
-
-            <div>
-                Hampi Views
-            </div>
-
-        </div>
-
-
-        <div class="gallery-image">
-
-            <img src="hampi-palm-fields.jpg"
-                 alt="Hampi palm trees and fields">
-
-            <div>
-                Green Countryside
-            </div>
-
-        </div>
-
-
-        <div class="gallery-image">
-
-            <img src="hampi-ancient-tree.jpg"
-                 alt="Ancient Hampi temple">
-
-            <div>
-                Ancient Hampi
-            </div>
-
-        </div>
-
-
-        <div class="gallery-image wide">
-
-            <img src="hampi-temple-road.jpg"
-                 alt="Hampi temple road reflection">
-
-            <div>
-                Temple Roads
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- BOOKING -->
-
-<section id="booking"
-         class="booking section">
-
-
-    <div class="booking-container">
-
-
-        <div>
-
-            <div class="section-label orange">
-                06 · BOOK A RIDE
-            </div>
-
-
-            <h2>
-
-                Ready to
-                <br>
-
-                <em>explore?</em>
-
-            </h2>
-
-
-            <p>
-
-                Contact Anil Bike Rental to check
-                available bikes, scooters, prices
-                and rental requirements.
-
-            </p>
-
-        </div>
-
-
-        <div class="booking-buttons">
-
-
-            <a href="tel:"
-               class="booking-button">
-
-                <span>
-                    ☎
-                </span>
-
-                <div>
-
-                    <small>
-                        CALL US
-                    </small>
-
-                    <strong>
-                        Call Anil Bike Rental
-                    </strong>
-
+    </section>
+
+    <!-- 2. QUICK BENEFITS SECTION -->
+    <section class="benefits-section" id="benefits">
+        <div class="section-container">
+            <div class="benefits-grid">
+                <!-- 01 -->
+                <div class="benefit-card">
+                    <div class="benefit-card-top">
+                        <span class="benefit-number">01</span>
+                        <div class="benefit-icon-wrap">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="5.5" cy="17.5" r="3.5"/>
+                                <circle cx="18.5" cy="17.5" r="3.5"/>
+                                <path d="M15 6h-3.5L9 11l3 3h3.5"/>
+                                <path d="M18.5 17.5L15 6"/>
+                                <path d="M9 11l-3.5 6.5"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Well Maintained Bikes</h3>
+                    <p>Clean, regularly serviced scooters and motorcycles ready for smooth rides across Hampi's roads.</p>
                 </div>
 
-                ↗
-
-            </a>
-
-
-            <a href="https://wa.me/"
-               target="_blank"
-               class="booking-button">
-
-                <span>
-                    ◉
-                </span>
-
-                <div>
-
-                    <small>
-                        WHATSAPP
-                    </small>
-
-                    <strong>
-                        Message for Availability
-                    </strong>
-
+                <!-- 02 -->
+                <div class="benefit-card">
+                    <div class="benefit-card-top">
+                        <span class="benefit-number">02</span>
+                        <div class="benefit-icon-wrap">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Affordable Rates</h3>
+                    <p>Honest, transparent daily pricing with no surprise charges or hidden tourist markups.</p>
                 </div>
 
-                ↗
+                <!-- 03 -->
+                <div class="benefit-card">
+                    <div class="benefit-card-top">
+                        <span class="benefit-number">03</span>
+                        <div class="benefit-icon-wrap">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Flexible Rentals</h3>
+                    <p>Rent for half-day, full-day, or multi-day journeys with quick drop-off and easy extensions.</p>
+                </div>
 
-            </a>
+                <!-- 04 -->
+                <div class="benefit-card">
+                    <div class="benefit-card-top">
+                        <span class="benefit-number">04</span>
+                        <div class="benefit-icon-wrap">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Easy WhatsApp Booking</h3>
+                    <p>Message directly on +91 9353008180 for instant bike confirmation, pickup directions, and route tips.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 4. NEARBY PLACES ON MAP & PLACE CARDS SECTION -->
+    <section class="places-section" id="places">
+        <div class="section-container">
+            
+            <div class="section-header">
+                <div class="section-eyebrow">INTERACTIVE SIGHTSEEING MAP</div>
+                <h2 class="section-title">Nearby Places to Visit from Anil Bike Rental Hampi</h2>
+                <p class="section-subtitle">
+                    Discover iconic temples, royal pavilions, and scenic boulder hills. Click any marker or use the cards below to focus the map and see distance details.
+                </p>
+            </div>
+
+            <!-- INTERACTIVE MAP CONTAINER -->
+            <div class="map-interactive-box">
+                <div class="map-status-bar">
+                    <div class="map-status-info">
+                        <span class="status-hub-badge">🏍️ Starting Point</span>
+                        <strong id="activePlaceLabel">Anil Bike Rental Hampi (Hub)</strong>
+                        <span class="status-hint">• Click any attraction marker to view route & details</span>
+                    </div>
+                    <button type="button" class="btn-reset-map" id="btnResetMap" title="Reset map to show all 12 attractions">
+                        <span>↺ Reset View</span>
+                    </button>
+                </div>
+
+                <div id="hampiMap" class="leaflet-map-element" role="region" aria-label="Interactive map of Hampi attractions around Anil Bike Rental"></div>
+            </div>
+
+            <!-- NEARBY ATTRACTION CARDS GRID -->
+            <div class="places-cards-header">
+                <h3>15 Famous Hampi Attractions</h3>
+                <span class="places-count-tag">Distances measured from Anil Bike Rental Hub</span>
+            </div>
+
+            <div class="places-grid" id="placesGrid">
+                <!-- Cards are rendered semantically in HTML and hooked to map via data-place-id -->
+
+                <!-- 1. Virupaksha Temple -->
+                <article class="place-card" data-place-id="virupaksha">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/virupaksha.jpg" alt="Virupaksha Temple Gopuram" loading="lazy">
+                        <div class="place-badge">MUST VISIT</div>
+                        <span class="place-distance-chip">📍 ~400 m • 2 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Virupaksha Temple</h3>
+                        <p>Active 7th-century Shiva temple with a towering 50-meter gopuram, standing as the spiritual heartbeat of Hampi.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="virupaksha">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Virupaksha Temple" title="Rent bike to ride here">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2. Hampi Bazaar -->
+                <article class="place-card" data-place-id="bazaar">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/bazaar.jpg" alt="Hampi Bazaar Ancient Colonnades" loading="lazy">
+                        <div class="place-badge">HERITAGE</div>
+                        <span class="place-distance-chip">📍 ~300 m • 1 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Hampi Bazaar</h3>
+                        <p>Historic kilometer-long market street lined with ancient two-storey stone colonnades and vibrant local craft shops.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="bazaar">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Hampi Bazaar">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3. Hemakuta Hill -->
+                <article class="place-card" data-place-id="hemakuta">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/hemakuta.jpg" alt="Hemakuta Hill Sunset Shrines" loading="lazy">
+                        <div class="place-badge">SUNSET VIEW</div>
+                        <span class="place-distance-chip">📍 ~650 m • 3 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Hemakuta Hill</h3>
+                        <p>Expansive gentle hilltop studded with pre-Vijayanagara shrines offering panoramic 360-degree sunset vistas over Hampi.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="hemakuta">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Hemakuta Hill">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4. Sasivekalu Ganesha -->
+                <article class="place-card" data-place-id="sasivekalu">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/sasivekalu.jpg" alt="Sasivekalu Ganesha Monolith" loading="lazy">
+                        <div class="place-badge">MONOLITH</div>
+                        <span class="place-distance-chip">📍 ~700 m • 3 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Sasivekalu Ganesha</h3>
+                        <p>Giant 8-foot monolithic statue of Lord Ganesha gracefully carved from a single massive boulder under an open pavilion.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="sasivekalu">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Sasivekalu Ganesha">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5. Hampi Matanga Hill -->
+                <article class="place-card" data-place-id="matanga">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/matanga.jpg" alt="Matanga Hill Sunrise Point" loading="lazy">
+                        <div class="place-badge">SUNRISE POINT</div>
+                        <span class="place-distance-chip">📍 ~1.2 km • 5 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Hampi Matanga Hill</h3>
+                        <p>The highest vantage point in central Hampi with an unmatched 360-degree aerial panorama across the entire boulder kingdom.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="matanga">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Hampi Matanga Hill">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6. Achyutaraya Temple -->
+                <article class="place-card" data-place-id="achyutaraya">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/achyutaraya.jpg" alt="Achyutaraya Temple Ruins" loading="lazy">
+                        <div class="place-badge">ANCIENT VALLEY</div>
+                        <span class="place-distance-chip">📍 ~1.6 km • 6 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Achyutaraya Temple</h3>
+                        <p>Secluded 16th-century temple complex nestled in a quiet valley between Matanga Hill and the Tungabhadra River.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="achyutaraya">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Achyutaraya Temple">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 7. Underground Shiva Temple -->
+                <article class="place-card" data-place-id="underground_shiva">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/underground_shiva.jpg" alt="Underground Shiva Temple" loading="lazy">
+                        <div class="place-badge">SUBTERRANEAN</div>
+                        <span class="place-distance-chip">📍 ~1.8 km • 6 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Underground Shiva Temple</h3>
+                        <p>Historic Prasanna Virupaksha temple constructed several meters below ground level, frequently submerged in natural spring waters.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="underground_shiva">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Underground Shiva Temple">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 8. Lotus Mahal -->
+                <article class="place-card" data-place-id="lotus_mahal">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/lotus_mahal.jpg" alt="Lotus Mahal Royal Enclosure" loading="lazy">
+                        <div class="place-badge">ROYAL PAVILION</div>
+                        <span class="place-distance-chip">📍 ~2.6 km • 8 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Lotus Mahal</h3>
+                        <p>Intricate two-storey Indo-Islamic pleasure palace with graceful archways and lotus-bud carvings in the Zenana Enclosure.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="lotus_mahal">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Lotus Mahal">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 9. Elephant Stables -->
+                <article class="place-card" data-place-id="elephant_stables">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/elephant_stables.jpg" alt="Elephant Stables Hampi" loading="lazy">
+                        <div class="place-badge">ROYAL COMPLEX</div>
+                        <span class="place-distance-chip">📍 ~2.9 km • 9 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Elephant Stables</h3>
+                        <p>Majestic row of 11 grand domed chambers that once housed the state elephants of the Vijayanagara Empire.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="elephant_stables">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Elephant Stables">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 10. Queen’s Bath -->
+                <article class="place-card" data-place-id="queens_bath">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/queens_bath.jpg" alt="Queen’s Bath Monument" loading="lazy">
+                        <div class="place-badge">ROYAL BATH</div>
+                        <span class="place-distance-chip">📍 ~3.4 km • 10 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Queen’s Bath</h3>
+                        <p>Royal aquatic enclosure surrounded by elaborate arched corridors, ornate balconies, and open skylights.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="queens_bath">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Queen’s Bath">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 11. Vijaya Vittala Temple -->
+                <article class="place-card" data-place-id="vittala">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/vittala.jpg" alt="Vijaya Vittala Temple Compound" loading="lazy">
+                        <div class="place-badge">WORLD HERITAGE</div>
+                        <span class="place-distance-chip">📍 ~3.8 km • 11 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Vijaya Vittala Temple</h3>
+                        <p>Pinnacle of Vijayanagara architecture celebrated for its intricate musical pillars and sprawling temple pavilions.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="vittala">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Vijaya Vittala Temple">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 12. Stone Chariot -->
+                <article class="place-card" data-place-id="stone_chariot">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/stone_chariot.jpg" alt="Stone Chariot Hampi" loading="lazy">
+                        <div class="place-badge">ICON OF INDIA</div>
+                        <span class="place-distance-chip">📍 ~3.8 km • 11 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Stone Chariot</h3>
+                        <p>India’s iconic monolithic stone chariot dedicated to Garuda, featuring carved granite wheels that once turned freely.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="stone_chariot">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Stone Chariot">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 13. Ugra Narasimha -->
+                <article class="place-card" data-place-id="ugra_narasimha">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/ugra_narasimha.jpg" alt="Ugra Narasimha Monolith Statue" loading="lazy">
+                        <div class="place-badge">MONOLITH</div>
+                        <span class="place-distance-chip">📍 ~800 m • 3 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Ugra Narasimha</h3>
+                        <p>Towering 6.7-meter monolithic Lakshmi Narasimha statue with expressive eyes and a seven-headed Adishesha serpent hood.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="ugra_narasimha">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Ugra Narasimha">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 14. Anjanadri Hill -->
+                <article class="place-card" data-place-id="anjanadri">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/anjanadri.jpg" alt="Anjanadri Hill Anegundi" loading="lazy">
+                        <div class="place-badge">SUNSET & TEMPLE</div>
+                        <span class="place-distance-chip">📍 ~4.5 km • 15 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Anjanadri Hill</h3>
+                        <p>Revered birthplace of Lord Hanuman across the Tungabhadra River, featuring 575 stone steps and sensational sunset panoramas.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="anjanadri">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Anjanadri Hill">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 15. Tungabhadra Dam -->
+                <article class="place-card" data-place-id="tungabhadra">
+                    <div class="place-image-wrap">
+                        <img src="assets/places/tungabhadra.jpg" alt="Tungabhadra Dam Reservoir" loading="lazy">
+                        <div class="place-badge">SCENIC RESERVOIR</div>
+                        <span class="place-distance-chip">📍 ~16 km • 30 min</span>
+                    </div>
+                    <div class="place-body">
+                        <h3>Tungabhadra Dam</h3>
+                        <p>Expansive reservoir garden and musical fountain overlooking the vast blue waters near Munirabad — a scenic bike ride.</p>
+                        <div class="place-card-actions">
+                            <button type="button" class="btn-view-map" data-target-id="tungabhadra">
+                                <span>View on Map</span>
+                                <span class="action-icon">🎯</span>
+                            </button>
+                            <a href="#booking" class="btn-place-wa" data-place="Tungabhadra Dam">
+                                <span>Rent Bike</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- 6. FINAL CTA AT BOTTOM OF NEARBY PLACES SECTION -->
+            <div class="places-bottom-cta">
+                <div class="places-cta-inner">
+                    <div class="cta-mini-tag">HAMPI TWO-WHEELER EXPEDITION</div>
+                    <h2>Explore Hampi on Two Wheels</h2>
+                    <p>Rent a bike from Anil Bike Rental Hampi and explore the historic wonders of Hampi at your own pace.</p>
+                    <div class="places-cta-btn-group">
+                        <a href="#booking" class="btn-places-book">
+                            <span>Book Your Bike</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                        <a href="https://wa.me/919353008180?text=Hi%20Anil%20Bike%20Rental%20Hampi%2C%20I%20would%20like%20to%20rent%20a%20bike.%20Please%20share%20the%20available%20bikes%2C%20prices%20and%20booking%20details." target="_blank" rel="noopener noreferrer" class="btn-places-wa">
+                            <svg class="wa-svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 18.15c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.15.83.84-3.07-.2-.31a8.19 8.19 0 01-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.83c.01 4.54-3.69 8.23-8.15 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.07-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.88.86-.88 2.1s.9 2.43 1.02 2.6c.12.17 1.77 2.7 4.28 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+                            </svg>
+                            <span>WhatsApp Us</span>
+                        </a>
+                        <a href="tel:+919353008180" class="btn-places-call">
+                            <span>📞 Call +91 9353008180</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
         </div>
+    </section>
 
-    </div>
+    <!-- 4. DYNAMIC BOOKING FORM SECTION -->
+    <section class="booking-section" id="booking">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-eyebrow">INSTANT WHATSAPP RESERVATION</div>
+                <h2 class="section-title">Book Your Bike in Hampi</h2>
+                <p class="section-subtitle">
+                    Select your travel dates, choose your bike and enter your details. We will generate your instant booking request directly to <strong>+91 9353008180</strong>.
+                </p>
+            </div>
 
-</section>
+            <div class="booking-card-wrapper">
+                <form id="bikeBookingForm" class="booking-form" novalidate>
+                    <div class="booking-form-grid">
+                        
+                        <!-- 1. NAME -->
+                        <div class="form-group">
+                            <label for="bookName" class="form-label">
+                                <span>Name</span>
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="text" id="bookName" name="name" class="form-control" placeholder="Enter your full name" required autocomplete="name">
+                            <span class="field-error" id="errName"></span>
+                        </div>
 
+                        <!-- 2. MOBILE -->
+                        <div class="form-group">
+                            <label for="bookMobile" class="form-label">
+                                <span>Mobile</span>
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="tel" id="bookMobile" name="mobile" class="form-control" placeholder="10-digit mobile number" required autocomplete="tel">
+                            <span class="field-error" id="errMobile"></span>
+                        </div>
 
+                        <!-- 3. FROM DATE -->
+                        <div class="form-group">
+                            <label for="bookFromDate" class="form-label">
+                                <span>From Date</span>
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="date" id="bookFromDate" name="fromDate" class="form-control" required>
+                            <span class="field-error" id="errFromDate"></span>
+                        </div>
 
-<!-- LOCATION -->
+                        <!-- 4. TO DATE -->
+                        <div class="form-group">
+                            <label for="bookToDate" class="form-label">
+                                <span>To Date</span>
+                                <span class="required-star">*</span>
+                            </label>
+                            <input type="date" id="bookToDate" name="toDate" class="form-control" required>
+                            <span class="field-error" id="errToDate"></span>
+                        </div>
 
-<section id="location"
-         class="location section">
+                        <!-- 5. BIKE -->
+                        <div class="form-group">
+                            <label for="bookBike" class="form-label">
+                                <span>Bike</span>
+                                <span class="required-star">*</span>
+                            </label>
+                            <select id="bookBike" name="bike" class="form-control form-select" required>
+                                <option value="" disabled selected>Select a bike</option>
+                                <option value="Honda Activa 6G (Automatic Scooter)">Honda Activa 6G (Automatic Scooter)</option>
+                                <option value="TVS Jupiter 125 (Automatic Scooter)">TVS Jupiter 125 (Automatic Scooter)</option>
+                                <option value="Royal Enfield Classic 350">Royal Enfield Classic 350</option>
+                                <option value="Royal Enfield Hunter 350">Royal Enfield Hunter 350</option>
+                                <option value="Bajaj Pulsar 150">Bajaj Pulsar 150</option>
+                                <option value="Any Available Scooter / Bike">Any Available Scooter / Bike</option>
+                            </select>
+                            <span class="field-error" id="errBike"></span>
+                        </div>
 
+                        <!-- 6. NUMBER OF BIKES -->
+                        <div class="form-group">
+                            <label for="bookNumBikes" class="form-label">
+                                <span>Number of Bikes</span>
+                                <span class="required-star">*</span>
+                            </label>
+                            <select id="bookNumBikes" name="numBikes" class="form-control form-select" required>
+                                <option value="1 Bike" selected>1 Bike</option>
+                                <option value="2 Bikes">2 Bikes</option>
+                                <option value="3 Bikes">3 Bikes</option>
+                                <option value="4+ Bikes (Group Booking)">4+ Bikes (Group Booking)</option>
+                            </select>
+                            <span class="field-error" id="errNumBikes"></span>
+                        </div>
 
-    <div>
+                        <!-- 7. PICKUP LOCATION -->
+                        <div class="form-group full-width">
+                            <label for="bookPickup" class="form-label">
+                                <span>Pickup Location</span>
+                                <span class="required-star">*</span>
+                            </label>
+                            <select id="bookPickup" name="pickup" class="form-control form-select" required>
+                                <option value="Anil Bike Rental Hub (Hampi Bazaar / Temple Road)" selected>Anil Bike Rental Hub (Hampi Bazaar / Temple Road)</option>
+                                <option value="Hosapete Railway Station">Hosapete Railway Station</option>
+                                <option value="Hotel / Homestay Delivery in Hampi">Hotel / Homestay Delivery in Hampi</option>
+                                <option value="Other Location in Hampi">Other Location in Hampi</option>
+                            </select>
+                            <span class="field-error" id="errPickup"></span>
+                        </div>
 
-        <div class="section-label">
-            07 · FIND US
+                        <!-- 8. ADDITIONAL MESSAGE -->
+                        <div class="form-group full-width">
+                            <label for="bookNotes" class="form-label">
+                                <span>Additional Message</span>
+                            </label>
+                            <textarea id="bookNotes" name="notes" rows="3" class="form-control form-textarea" placeholder="E.g. Arriving at 9:00 AM, need 2 helmets, helmet size, etc."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- FEEDBACK ALERT -->
+                    <div id="bookingFormFeedback" class="form-feedback" role="alert" style="display:none;"></div>
+
+                    <!-- SUBMIT BUTTON -->
+                    <div class="booking-submit-wrap">
+                        <button type="submit" class="btn-book-whatsapp" id="btnSubmitBooking">
+                            <svg class="wa-svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 18.15c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.15.83.84-3.07-.2-.31a8.19 8.19 0 01-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.83c.01 4.54-3.69 8.23-8.15 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.07-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.88.86-.88 2.1s.9 2.43 1.02 2.6c.12.17 1.77 2.7 4.28 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+                            </svg>
+                            <span>BOOK NOW ON WHATSAPP</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+                        <p class="booking-guarantee-note">
+                            Direct reservation with Anil Bike Rental Hampi (+91 9353008180). Instant response!
+                        </p>
+                    </div>
+                </form>
+            </div>
         </div>
+    </section>
 
+    <!-- 5. RENTAL EXPERIENCE SECTION -->
+    <section class="rental-section" id="rentals">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-eyebrow">SEAMLESS PROCESS</div>
+                <h2 class="section-title">Simple Rental. Better Ride.</h2>
+                <p class="section-subtitle">
+                    Renting a bike in Hampi should be effortless. Get on the road in three easy steps.
+                </p>
+            </div>
 
-        <h2>
+            <!-- 3-STEP TIMELINE -->
+            <div class="steps-timeline">
+                <div class="timeline-accent-line"></div>
 
-            Meet us in
-            <br>
+                <!-- STEP 1 -->
+                <div class="step-card">
+                    <div class="step-badge">01</div>
+                    <div class="step-icon">🛵</div>
+                    <h3>Choose Your Bike</h3>
+                    <p>Select from automatic scooters for effortless temple-hopping or geared motorcycles for wider exploration.</p>
+                </div>
 
-            <span>
-                Hampi.
-            </span>
+                <!-- STEP 2 -->
+                <div class="step-card">
+                    <div class="step-badge">02</div>
+                    <div class="step-icon">💬</div>
+                    <h3>Book on WhatsApp</h3>
+                    <p>Send a quick message on +91 9353008180. Get instant availability, rates, and pickup location details.</p>
+                </div>
 
-        </h2>
+                <!-- STEP 3 -->
+                <div class="step-card">
+                    <div class="step-badge">03</div>
+                    <div class="step-icon">🛣️</div>
+                    <h3>Ride Through Hampi</h3>
+                    <p>Pick up your helmets, get trusted local route recommendations, and begin your ride across the boulder kingdom.</p>
+                </div>
+            </div>
 
+            <!-- FLEET SHOWCASE STRIP -->
+            <div class="fleet-banner-card">
+                <div class="fleet-banner-image">
+                    <img src="anil-bike-rental.png" alt="Anil Bike Rental Fleet in Hampi" loading="lazy">
+                </div>
+                <div class="fleet-banner-content">
+                    <div class="fleet-tag">ANIL BIKE RENTAL SHOP</div>
+                    <h3>Well-Tuned Bikes, Helmets & Complete Freedom</h3>
+                    <p>Every scooter and bike is thoroughly inspected before handover. Helmets are provided with every rental, ensuring safe and hassle-free adventures throughout Hampi.</p>
+                    <div class="fleet-perks">
+                        <span>✓ Clean Helmets Included</span>
+                        <span>✓ Fuel-Efficient Scooters</span>
+                        <span>✓ Local Route Guidance</span>
+                    </div>
+                    <div class="fleet-actions">
+                        <a href="https://wa.me/919353008180?text=Hi%20Anil%20Bike%20Rental%20Hampi%2C%20I%20would%20like%20to%20rent%20a%20bike.%20Please%20share%20the%20available%20bikes%2C%20prices%20and%20booking%20details." target="_blank" rel="noopener noreferrer" class="fleet-wa-btn">
+                            <span>Check Bikes on WhatsApp</span>
+                            <span class="btn-arrow">→</span>
+                        </a>
+                        <a href="tel:+919353008180" class="fleet-call-btn">
+                            <span>📞 Call +91 9353008180</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <p>
-            Hampi • Sanapur • Karnataka
-        </p>
+    <!-- 6. CONTACT & FINAL CTA SECTION -->
+    <section class="final-cta-section" id="contact">
+        <div class="section-container">
+            <div class="final-cta-card">
+                <div class="final-cta-label">YOUR HAMPI RIDE STARTS HERE</div>
+                <h2 class="final-cta-heading">Ready to Ride Hampi?</h2>
+                <p class="final-cta-subheading">Book your bike in minutes and start exploring the historic wonders of Hampi.</p>
 
+                <div class="final-cta-buttons">
+                    <!-- PRIMARY: WHATSAPP BUTTON -->
+                    <a href="https://wa.me/919353008180?text=Hi%20Anil%20Bike%20Rental%20Hampi%2C%20I%20would%20like%20to%20rent%20a%20bike.%20Please%20share%20the%20available%20bikes%2C%20prices%20and%20booking%20details." target="_blank" rel="noopener noreferrer" class="btn-primary-wa final-btn-wa">
+                        <span class="btn-wa-icon-wrap">
+                            <svg class="wa-svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 18.15c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.15.83.84-3.07-.2-.31a8.19 8.19 0 01-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.83c.01 4.54-3.69 8.23-8.15 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.07-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.88.86-.88 2.1s.9 2.43 1.02 2.6c.12.17 1.77 2.7 4.28 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+                            </svg>
+                        </span>
+                        <span class="btn-text">WhatsApp Now (+91 9353008180)</span>
+                        <span class="btn-arrow">→</span>
+                    </a>
 
-        <a href="https://www.google.com/maps/search/?api=1&query=Anil+Bike+Rental+Hampi"
-           target="_blank"
-           class="btn dark">
+                    <!-- SECONDARY: CALL BUTTON (PRIMARY) -->
+                    <a href="tel:+919353008180" class="btn-call-secondary">
+                        <span class="call-icon-wrap">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </span>
+                        <span>Call +91 9353008180</span>
+                    </a>
 
-            Get Directions ↗
+                    <!-- SECONDARY: CALL BUTTON (ALT) -->
+                    <a href="tel:+919449533526" class="btn-call-secondary">
+                        <span class="call-icon-wrap">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </span>
+                        <span>Alt: +91 9449533526</span>
+                    </a>
+                </div>
 
+                <div class="final-location-note">
+                    <span>📍 Anil Bike Rental • Hampi, Karnataka • Open Daily 7:00 AM – 9:00 PM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="brand-symbol">AR</span>
+                <div>
+                    <strong>ANIL BIKE RENTAL</strong>
+                    <small>HAMPI • KARNATAKA</small>
+                </div>
+            </div>
+
+            <p class="footer-text">
+                Your trusted two-wheeler rental hub in Hampi. Contact us directly at <strong>+91 9353008180</strong> or <strong>+91 9449533526</strong>.
+            </p>
+
+            <div class="footer-bottom">
+                <span>© <span id="year"></span> Anil Bike Rental, Hampi. All rights reserved.</span>
+                <a href="#home" class="back-to-top">Back to top ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FIXED FLOATING BUTTONS (WHATSAPP & CALL — WITH PROPER SVG ICONS, NOT EMOJI) -->
+    <aside class="fixed-floating-buttons" id="floatingBar" aria-label="Quick contact buttons">
+        <!-- CALL BUTTON (NO EMOJI, PROPER SVG) -->
+        <a href="tel:+919353008180" class="floating-action-btn floating-call-btn" aria-label="Call Anil Bike Rental at +91 9353008180">
+            <svg class="floating-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span class="floating-action-text">Call Now</span>
         </a>
 
-    </div>
-
-
-    <div class="map-card">
-
-        <div class="map-pattern"></div>
-
-
-        <div class="map-pin">
-            📍
-        </div>
-
-
-        <div class="map-label">
-
-            <strong>
-                Anil Bike Rental
-            </strong>
-
-            <small>
-                Hampi • Sanapur
-            </small>
-
-        </div>
-
-
-        <a href="https://www.google.com/maps/search/?api=1&query=Anil+Bike+Rental+Hampi"
-           target="_blank"
-           class="map-link">
-
-            Open Google Maps ↗
-
+        <!-- WHATSAPP BUTTON (NO EMOJI, PROPER SVG) -->
+        <a href="https://wa.me/919353008180?text=Hi%20Anil%20Bike%20Rental%20Hampi%2C%20I%20would%20like%20to%20rent%20a%20bike.%20Please%20share%20the%20available%20bikes%2C%20prices%20and%20booking%20details." target="_blank" rel="noopener noreferrer" class="floating-action-btn floating-wa-btn" aria-label="WhatsApp Anil Bike Rental at +91 9353008180">
+            <span class="floating-pulse-ring"></span>
+            <svg class="floating-svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm0 18.15c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.15.83.84-3.07-.2-.31a8.19 8.19 0 01-1.26-4.35c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.83c.01 4.54-3.69 8.23-8.15 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.07-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.88.86-.88 2.1s.9 2.43 1.02 2.6c.12.17 1.77 2.7 4.28 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+            </svg>
+            <span class="floating-action-text">WhatsApp</span>
         </a>
+    </aside>
 
-    </div>
-
-</section>
-
-
-
-<!-- FINAL -->
-
-<section class="final">
-
-    <div class="final-overlay"></div>
-
-
-    <div class="final-content">
-
-        <div class="section-label orange">
-            HAMPI IS WAITING
-        </div>
-
-
-        <h2>
-
-            Ride out.
-            <br>
-
-            <em>
-                Discover more.
-            </em>
-
-        </h2>
-
-
-        <a href="#booking"
-           class="btn primary">
-
-            Book Your Ride →
-
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <div class="footer-brand">
-
-        <span class="brand-logo">
-            AR
-        </span>
-
-        <div>
-
-            <strong>
-                Anil Bike Rental
-            </strong>
-
-            <small>
-                HAMPI • SANAPUR
-            </small>
-
-        </div>
-
-    </div>
-
-
-    <p>
-        © <span id="year"></span>
-        Anil Bike Rental Hampi
-    </p>
-
-
-    <a href="#home">
-        Back to top ↑
-    </a>
-
-</footer>
-
-
-
-<script src="script.js"></script>
-
+    <!-- Leaflet JS & Vanilla JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
