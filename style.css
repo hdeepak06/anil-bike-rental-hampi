@@ -58,6 +58,9 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -584,6 +587,39 @@ button {
     max-width: 650px;
     margin: 0 auto 34px;
     font-weight: 400;
+}
+
+
+/* HERO SECONDARY ACTION BUTTONS */
+.btn-view-bikes-hero,
+.btn-places-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    color: #FFFFFF;
+    font-family: var(--font-heading, "Outfit", sans-serif);
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.25s ease;
+    text-decoration: none;
+    min-height: 48px;
+    box-sizing: border-box;
+}
+
+.btn-view-bikes-hero:hover,
+.btn-places-secondary:hover {
+    background: rgba(255, 255, 255, 0.95);
+    color: #161A17;
+    border-color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 .hero-cta-group {
@@ -4712,5 +4748,268 @@ body.nav-open-lock {
         width: 100%;
         min-height: 46px;
         font-size: 14px;
+    }
+}
+
+
+/* ========================================================
+   COMPREHENSIVE MOBILE-FIRST ENHANCEMENTS & SAFEGUARDS
+   ======================================================== */
+
+@media (max-width: 640px) {
+    /* Touch Target & Fluid Typography Fixes */
+    .hero {
+        padding-top: 36px;
+        padding-bottom: 36px;
+        min-height: calc(100vh - 65px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-content {
+        padding: 0 16px;
+        max-width: 100%;
+    }
+
+    .hero-eyebrow {
+        font-size: 11px !important;
+        padding: 6px 14px !important;
+        max-width: 100% !important;
+        line-height: 1.35 !important;
+        margin-bottom: 16px !important;
+        white-space: normal !important;
+    }
+
+    .hero-title {
+        font-size: clamp(30px, 9vw, 44px) !important;
+        line-height: 1.15 !important;
+        margin-bottom: 14px !important;
+    }
+
+    .hero-description {
+        font-size: 14px !important;
+        line-height: 1.55 !important;
+        margin-bottom: 22px !important;
+        padding: 0 6px !important;
+    }
+
+    .hero-cta-group {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 12px !important;
+    }
+
+    .btn-hero-gold,
+    .btn-secondary-pill,
+    .btn-view-bikes-hero,
+    .btn-places-secondary {
+        width: 100% !important;
+        justify-content: center !important;
+        min-height: 48px !important;
+        font-size: 14.5px !important;
+        padding: 13px 20px !important;
+        box-sizing: border-box !important;
+    }
+
+    .btn-hero-gold {
+        min-height: 52px !important;
+        font-size: 15px !important;
+    }
+
+    .hero-trust-bar {
+        flex-direction: column !important;
+        gap: 8px !important;
+        padding: 10px 14px !important;
+        font-size: 11.5px !important;
+        border-radius: 14px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .trust-divider,
+    .trust-sep {
+        display: none !important;
+    }
+
+    /* Sightseeing & Route Planner on Mobile */
+    .route-presets-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+    }
+
+    .preset-buttons-container {
+        display: flex !important;
+        gap: 8px !important;
+        overflow-x: auto !important;
+        width: 100% !important;
+        padding-bottom: 6px !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+    }
+
+    .preset-buttons-container::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .preset-route-btn {
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+        min-height: 44px !important;
+        padding: 10px 15px !important;
+        font-size: 12.5px !important;
+        border-radius: 999px !important;
+    }
+
+    #hampiMap {
+        height: 360px !important;
+        width: 100% !important;
+    }
+
+    /* Available Bikes Mobile Card Polish */
+    .bike-card-image {
+        height: 220px !important;
+    }
+
+    .bike-action-btns {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .btn-book-bike-gold,
+    .btn-bike-wa-direct {
+        width: 100% !important;
+        min-height: 48px !important;
+        font-size: 14px !important;
+        justify-content: center !important;
+    }
+
+    /* Place Cards Actions Mobile Polish */
+    .place-card-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    .btn-get-directions,
+    .btn-view-map,
+    .btn-place-wa,
+    .btn-rent-gold {
+        width: 100% !important;
+        min-height: 44px !important;
+        font-size: 13.5px !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Form Mobile Inputs (No iOS Zoom) */
+    .form-control,
+    .form-select,
+    .form-textarea {
+        font-size: 16px !important;
+        min-height: 48px !important;
+        border-radius: 12px !important;
+    }
+
+    .btn-submit-booking {
+        min-height: 52px !important;
+        font-size: 15.5px !important;
+        border-radius: 14px !important;
+    }
+}
+
+/* SMALL MOBILE SCREENS (320px – 380px: iPhone SE, Galaxy Fold, Small Devices) */
+@media (max-width: 380px) {
+    .header-container {
+        padding: 8px 12px !important;
+    }
+
+    .brand-title {
+        font-size: 13.5px !important;
+    }
+
+    .brand-loc {
+        font-size: 8px !important;
+        letter-spacing: 0.03em !important;
+    }
+
+    .brand-symbol {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 11.5px !important;
+    }
+
+    .nav-book-btn {
+        padding: 7px 11px !important;
+        font-size: 11.5px !important;
+        gap: 4px !important;
+    }
+
+    .nav-toggle {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+    }
+
+    .hero-title {
+        font-size: 28px !important;
+    }
+
+    .hero-description {
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+    }
+
+    .hero-eyebrow {
+        font-size: 9.5px !important;
+        padding: 5px 10px !important;
+    }
+
+    .section-title {
+        font-size: 24px !important;
+    }
+
+    .fixed-floating-buttons {
+        bottom: 14px !important;
+        right: 12px !important;
+    }
+
+    .floating-action-btn {
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+    }
+}
+
+/* ACCESSIBILITY: REDUCED MOTION SETTINGS */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .hero-bg-image {
+        animation: none !important;
+        transform: scale(1.0) !important;
+    }
+
+    .btn-hero-gold::after,
+    .nav-book-btn::after,
+    .btn-explore-places-gold::after {
+        display: none !important;
+    }
+
+    .floating-pulse-ring {
+        animation: none !important;
     }
 }
