@@ -344,60 +344,106 @@ button {
     transform: translateY(-1px);
 }
 
+/* NAVBAR GOLD CTA BUTTON ('BOOK YOUR BIKE') */
 .nav-book-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--text-primary);
-    color: #FAF8F5;
-    font-family: var(--font-heading);
+    background: linear-gradient(135deg, #FFE895 0%, #DFB437 32%, #B58418 68%, #FAD768 100%);
+    color: #1A1300 !important;
+    font-family: var(--font-heading, "Outfit", sans-serif);
     font-size: 13.5px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 0.02em;
     padding: 10px 20px;
     border-radius: 999px;
-    box-shadow: 0 4px 14px rgba(22, 26, 22, 0.16);
-    transition: all var(--trans-fast);
+    border: 1.2px solid rgba(255, 255, 255, 0.65);
+    box-shadow: 
+        0 4px 16px rgba(223, 180, 55, 0.45),
+        0 2px 4px rgba(0, 0, 0, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.85);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
 }
 
-.nav-book-btn .btn-arrow {
-    transition: transform var(--trans-fast);
+.nav-book-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -120%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        transparent 100%
+    );
+    transform: rotate(25deg);
+    transition: left 0.75s ease;
+}
+
+.nav-book-btn:hover::after {
+    left: 150%;
 }
 
 .nav-book-btn:hover {
-    background: #000000;
-    transform: translateY(-1px);
-    box-shadow: 0 8px 22px rgba(22, 26, 22, 0.26);
+    background: linear-gradient(135deg, #FFF3BD 0%, #ECC54D 30%, #CA9A24 70%, #FFE07D 100%);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 24px rgba(184, 136, 26, 0.62),
+        inset 0 1px 2px rgba(255, 255, 255, 1);
+    color: #000000 !important;
+}
+
+.nav-book-btn .btn-arrow {
+    font-size: 14px;
+    font-weight: 900;
+    transition: transform var(--trans-fast);
 }
 
 .nav-book-btn:hover .btn-arrow {
     transform: translateX(4px);
 }
 
+/* SLEEK MOBILE NAV TOGGLE WITH GOLD ACCENTS */
 .nav-toggle {
     display: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid var(--border-subtle);
-    background: var(--bg-surface);
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(223, 180, 55, 0.5);
+    background: #FFFFFF;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5px;
     cursor: pointer;
+    box-shadow: 0 3px 12px rgba(223, 180, 55, 0.16), 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0;
+}
+
+.nav-toggle:hover,
+.nav-toggle:active {
+    border-color: #DFB437;
+    background: #FFFDF8;
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(223, 180, 55, 0.35);
 }
 
 .nav-toggle span {
     width: 20px;
-    height: 2px;
-    background: var(--text-primary);
-    border-radius: 2px;
+    height: 2.2px;
+    background: #161A17;
+    border-radius: 3px;
     transition: transform var(--trans-fast), opacity var(--trans-fast);
 }
 
 .nav-toggle.open span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(7.2px) rotate(45deg);
 }
 
 .nav-toggle.open span:nth-child(2) {
@@ -405,7 +451,7 @@ button {
 }
 
 .nav-toggle.open span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-7.2px) rotate(-45deg);
 }
 
 /* ========================================================
@@ -2289,8 +2335,24 @@ button {
         text-align: center;
     }
 
-    .nav-toggle {
+    .nav-call-link {
+        display: none !important;
+    }
+
+    .nav-actions {
         display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .nav-book-btn {
+        padding: 8px 14px !important;
+        font-size: 12.5px !important;
+        white-space: nowrap;
+    }
+
+    .nav-toggle {
+        display: flex !important;
     }
 
     .nav-links {
